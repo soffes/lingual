@@ -8,7 +8,16 @@ Work in progress gem for temporary localization for Objective-C projects. Say yo
 
 ## Usage
 
-Work in progress. You can't yet.
+A CLI is on my todo list. For now you can use it with the following commands:
+
+    $ git clone https://github.com/samsoffes/lingual.git
+    $ cd lingual
+    $ bundle
+    $ bundle console
+    > Dir.chdir('your_project/Resources')
+    > Lingual::Translator.google_api_key = 'your_api_key'
+    > translator = Lingual::Translator.new('en')
+    > translator.translate
 
 ## Contributing
 
