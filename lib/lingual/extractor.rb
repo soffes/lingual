@@ -1,8 +1,10 @@
+# encoding: UTF-8
+
 module Lingual
   class Extractor
-    LINE_COMMENT_PATTERN = /\/\/([^\n]+)\n/
-    BLOCK_COMMENT_PATTERN = /\/\*(.*)\*\//m
-    KEY_VALUE_PATTERN = /^(?:\"(.+)\")(?:[\s+])?=(?:[\s+])?(?:\"(.+)\");$/
+    LINE_COMMENT_PATTERN = /\/\/.+$/
+    BLOCK_COMMENT_PATTERN = /\/\*.*\*\//m
+    KEY_VALUE_PATTERN = /^(?:\"(.+)\")(?:[\s+])?=(?:[\s+])?(?:\"(.+)\");(?:[\s+])?$/
     
     def extract!
       # language / file / key / value
@@ -30,7 +32,7 @@ module Lingual
       file = File.open(path, 'r').read
       
       # Remove comments
-      file.gsub(LINE_COMMENT_PATTERN, '').gsub(BLOCK_COMMENT_PATTERN, '')
+      file = file.gsub(LINE_COMMENT_PATTERN, '').gsub(BLOCK_COMMENT_PATTERN, '')
       
       hash = {}
       
