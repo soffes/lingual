@@ -15,5 +15,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.version       = Lingual::VERSION
   
-  gem.add_dependency 'google_translate'
+  gem.add_dependency 'easy_translate'
 end
